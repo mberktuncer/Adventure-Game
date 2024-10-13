@@ -1,5 +1,9 @@
 package game;
 
+import location.Location;
+import location.Teleport;
+import location.normalLoc.SafeHouse;
+import location.normalLoc.ToolStore;
 import player.characters.Archer;
 import player.characters.Knight;
 import player.Player;
@@ -9,23 +13,52 @@ import java.util.Scanner;
 
 public class Game {
 
+    private Location safeHouse;
+    private Location toolStore;
+    private Player player;
+
     public void start() {
+
+        printCharsInfo();
+        player = getChar();
+
+        safeHouse = new SafeHouse(player);
+        toolStore = new ToolStore(player);
+
+        int locationChoice = takeLocationChoice();
+        teleport(locationChoice);
+
+    }
+
+    public void teleport(int choice){
+        switch (choice){
+            case 1:
+                safeHouse.LocationActions();
+                break;
+            case 2:
+                toolStore.LocationActions();
+                break;
+        }
+    }
+
+    public int takeLocationChoice(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Where do you wanna go now ?");
+        System.out.println("---------------------------");
+        System.out.println(
+                """
+                        1- Safe House\s
+                        2- Tool Store\s
+                        3- Cave\s
+                        4- Forest\s
+                        5- River""");
+        return scanner.nextInt();
+    }
+
+    public Player getChar(){
         Scanner scanner = new Scanner(System.in);
         Player player = null;
         boolean isInvalidChoice;
-
-        System.out.println("Welcome to the adventure game ! ");
-
-        System.out.println("You can select 3 different characters...");
-        System.out.println("----------------------------------------");
-
-        System.out.println("Character   - ID  - Damage - Health - Money \n" +
-                "--------------------------------------------\n" +
-                "Samurai     -  1  -   5    -   21   -   15  \n" +
-                "Archer      -  2  -   7    -   18   -   20  \n" +
-                "Knight      -  3  -   8    -   24   -   5   \n" +
-                "--------------------------------------------");
-
 
         do {
             System.out.print("Enter the character id that you want to play: ");
@@ -49,11 +82,22 @@ public class Game {
         }while (!isInvalidChoice);
 
         System.out.println("You choose " + player.getName());
-        System.out.println(player.getMoney());
-        System.out.println(player.getDamage());
-        System.out.println(player.getArmor());
+        return player;
+    }
 
+    public void printCharsInfo(){
+        System.out.println("Welcome to the adventure game ! ");
 
+        System.out.println("You can select 3 different characters...");
+        System.out.println("----------------------------------------");
+
+        System.out.println("""
+                Character   - ID  - Damage - Health - Money\s
+                --------------------------------------------
+                Samurai     -  1  -   5    -   21   -   15 \s
+                Archer      -  2  -   7    -   18   -   20 \s
+                Knight      -  3  -   8    -   24   -   5  \s
+                --------------------------------------------""");
     }
 
 }

@@ -11,12 +11,12 @@ import player.Player;
 import java.util.Scanner;
 
 public class ToolStore extends NormalLoc{
-    public ToolStore(Player player, String name) {
-        super(player, name);
+    public ToolStore(Player player) {
+        super(player);
     }
 
     @Override
-    public void Location() {
+    public void LocationActions() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("You are at Tool Store. You can buy weapons and armors here !");
         Menu();
