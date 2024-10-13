@@ -1,5 +1,6 @@
 package location.normalLoc;
 
+import game.Game;
 import inventory.equipments.armors.HeavyArmor;
 import inventory.equipments.armors.LightArmor;
 import inventory.equipments.armors.MidArmor;
@@ -24,6 +25,9 @@ public class ToolStore extends NormalLoc{
         System.out.print("Please enter the Equipment ID that you want to buy: ");
         int input = scanner.nextInt();
         Buy(input);
+
+        Game.teleport(Game.takeLocationChoice());
+
     }
 
     public void Menu(){

@@ -1,7 +1,6 @@
 package game;
 
 import location.Location;
-import location.Teleport;
 import location.normalLoc.SafeHouse;
 import location.normalLoc.ToolStore;
 import player.characters.Archer;
@@ -13,14 +12,13 @@ import java.util.Scanner;
 
 public class Game {
 
-    private Location safeHouse;
-    private Location toolStore;
-    private Player player;
+    private static Location safeHouse;
+    private static Location toolStore;
 
-    public void start() {
+    public static void start() {
 
         printCharsInfo();
-        player = getChar();
+        Player player = getChar();
 
         safeHouse = new SafeHouse(player);
         toolStore = new ToolStore(player);
@@ -30,7 +28,7 @@ public class Game {
 
     }
 
-    public void teleport(int choice){
+    public static void teleport(int choice){
         switch (choice){
             case 1:
                 safeHouse.LocationActions();
@@ -41,7 +39,7 @@ public class Game {
         }
     }
 
-    public int takeLocationChoice(){
+    public static int takeLocationChoice(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Where do you wanna go now ?");
         System.out.println("---------------------------");
@@ -55,7 +53,7 @@ public class Game {
         return scanner.nextInt();
     }
 
-    public Player getChar(){
+    public static Player getChar(){
         Scanner scanner = new Scanner(System.in);
         Player player = null;
         boolean isInvalidChoice;
@@ -85,7 +83,7 @@ public class Game {
         return player;
     }
 
-    public void printCharsInfo(){
+    public static void printCharsInfo(){
         System.out.println("Welcome to the adventure game ! ");
 
         System.out.println("You can select 3 different characters...");

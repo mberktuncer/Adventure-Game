@@ -12,6 +12,13 @@ public abstract class Player {
     protected Equipment weapon;
     protected Equipment armor;
 
+    public Player() {
+        selectChar();
+    }
+
+    protected abstract void selectChar();
+
+
     public Inventory getInventory() {
         return inventory;
     }
@@ -36,11 +43,6 @@ public abstract class Player {
         this.armor = armor;
     }
 
-    public Player() {
-        selectChar();
-    }
-
-    protected abstract void selectChar();
 
     public int getDamage() {
         return damage;
