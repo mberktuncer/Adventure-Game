@@ -1,11 +1,10 @@
 package game;
 
-import player.Archer;
-import player.Knight;
+import player.characters.Archer;
+import player.characters.Knight;
 import player.Player;
-import player.Samurai;
+import player.characters.Samurai;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Game {
@@ -50,6 +49,10 @@ public class Game {
         }while (!isInvalidChoice);
 
         System.out.println("You choose " + player.getName());
+        System.out.println(player.getMoney());
+        System.out.println(player.getDamage());
+        System.out.println(player.getArmor());
+
 
     }
 

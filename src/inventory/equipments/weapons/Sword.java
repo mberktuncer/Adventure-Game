@@ -16,11 +16,11 @@ public class Sword extends Equipment {
         this.price = swordPrice;
     }
 
-    public int getSwordDamageValue() {
+    public static int getSwordDamageValue() {
         return swordDamageValue;
     }
 
-    public int getSwordPrice() {
+    public static int getSwordPrice() {
         return swordPrice;
     }
 }

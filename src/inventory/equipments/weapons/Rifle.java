@@ -16,11 +16,11 @@ public class Rifle extends Equipment {
         this.price = riflePrice;
     }
 
-    public int getRifleDamageValue() {
+    public static int getRifleDamageValue() {
         return rifleDamageValue;
     }
 
-    public int getRiflePrice() {
+    public static int getRiflePrice() {
         return riflePrice;
     }
 }

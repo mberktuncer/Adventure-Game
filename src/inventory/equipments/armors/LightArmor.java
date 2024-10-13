@@ -16,11 +16,11 @@ public class LightArmor extends Equipment {
         this.price = lightArmorPrice;
     }
 
-    public int getLightArmorBlockingValue() {
+    public static int getLightArmorBlockingValue() {
         return lightArmorBlockingValue;
     }
 
-    public int getLightArmorPrice() {
+    public static int getLightArmorPrice() {
         return lightArmorPrice;
     }
 }

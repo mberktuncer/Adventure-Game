@@ -16,11 +16,11 @@ public class HeavyArmor extends Equipment {
         this.price = heavyArmorPrice;
     }
 
-    public int heavyArmorBlockingValue() {
+    public static int heavyArmorBlockingValue() {
         return heavyArmorBlockingValue;
     }
 
-    public int getHeavyArmorPrice() {
+    public static int getHeavyArmorPrice() {
         return heavyArmorPrice;
     }
 }
