@@ -14,13 +14,6 @@ public class LightArmor extends Equipment {
     @Override
     public void setEquipment() {
         this.price = lightArmorPrice;
-    }
-
-    public static int getLightArmorBlockingValue() {
-        return lightArmorBlockingValue;
-    }
-
-    public static int getLightArmorPrice() {
-        return lightArmorPrice;
+        this.armorBlockValue = lightArmorBlockingValue;
     }
 }

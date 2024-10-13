@@ -14,13 +14,7 @@ public class MidArmor extends Equipment {
     @Override
     public void setEquipment() {
         this.price = midArmorPrice;
+        this.armorBlockValue = midArmorBlockingValue;
     }
 
-    public static int getMidArmorBlockingValue() {
-        return midArmorBlockingValue;
-    }
-
-    public static int getMidArmorPrice() {
-        return midArmorPrice;
-    }
 }

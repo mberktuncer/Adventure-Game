@@ -28,6 +28,10 @@ public class Game {
 
     }
 
+    public static void gameOver(){
+
+    }
+
     public static void teleport(int choice){
         switch (choice){
             case 1:

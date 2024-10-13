@@ -7,6 +7,7 @@ public abstract class Monsters {
     protected int damageValue;
     protected int healthValue;
     protected int prizeMoney;
+    protected String monsterName;
 
     public Monsters() {
         selectMonster();
@@ -14,9 +15,8 @@ public abstract class Monsters {
 
     protected abstract void selectMonster();
 
-    public static int generateRandomMonster(){
-        Random rnd = new Random();
-        return rnd.nextInt(3) + 1;
+    public String getMonsterName() {
+        return monsterName;
     }
 
     public int getDamageValue() {

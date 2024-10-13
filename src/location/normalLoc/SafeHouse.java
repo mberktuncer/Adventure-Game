@@ -1,5 +1,6 @@
 package location.normalLoc;
 
+import game.Game;
 import player.Player;
 
 public class SafeHouse extends NormalLoc{
@@ -18,6 +19,8 @@ public class SafeHouse extends NormalLoc{
         player.setHealth(playerCurrentHealth + safeHouseHealingValue);
 
         System.out.println("Your new health is: " + player.getHealth());
+
+        Game.teleport(Game.takeLocationChoice());
 
     }
 }

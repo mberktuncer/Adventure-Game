@@ -14,13 +14,7 @@ public class Sword extends Equipment {
     @Override
     public void setEquipment() {
         this.price = swordPrice;
+        this.weaponDamageValue = swordDamageValue;
     }
 
-    public static int getSwordDamageValue() {
-        return swordDamageValue;
-    }
-
-    public static int getSwordPrice() {
-        return swordPrice;
-    }
 }

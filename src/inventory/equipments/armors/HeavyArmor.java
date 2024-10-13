@@ -14,13 +14,7 @@ public class HeavyArmor extends Equipment {
     @Override
     public void setEquipment() {
         this.price = heavyArmorPrice;
+        this.armorBlockValue = heavyArmorBlockingValue;
     }
 
-    public static int heavyArmorBlockingValue() {
-        return heavyArmorBlockingValue;
-    }
-
-    public static int getHeavyArmorPrice() {
-        return heavyArmorPrice;
-    }
 }

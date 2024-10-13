@@ -14,13 +14,6 @@ public class Gun extends Equipment {
     @Override
     public void setEquipment() {
         this.price = gunPrice;
-    }
-
-    public static int getGunDamageValue() {
-        return gunDamageValue;
-    }
-
-    public static int getGunPrice() {
-        return gunPrice;
+        this.weaponDamageValue = gunDamageValue;
     }
 }
