@@ -1,6 +1,8 @@
 package location.normalLoc;
 
 import game.Game;
+import inventory.Inventory;
+import inventory.equipments.Equipment;
 import inventory.equipments.armors.HeavyArmor;
 import inventory.equipments.armors.LightArmor;
 import inventory.equipments.armors.MidArmor;
@@ -19,14 +21,17 @@ public class ToolStore extends NormalLoc{
     @Override
     public void LocationActions() {
         Scanner scanner = new Scanner(System.in);
+
+        Inventory playerInventory = player.getInventory();
+
         System.out.println("You are at Tool Store. You can buy weapons and armors here !");
         Menu();
 
         System.out.print("Please enter the Equipment ID that you want to buy: ");
         int input = scanner.nextInt();
-        Buy(input);
+        Buy(input, playerInventory);
 
-        Game.teleport(Game.takeLocationChoice());
+        Game.teleport(Game.takeLocationChoice(), player);
 
     }
 
@@ -52,13 +57,14 @@ public class ToolStore extends NormalLoc{
 
     }
 
-    public void Buy(int equipmentId){
+    public void Buy(int equipmentId, Inventory playerInventory){
         int playerCurrentMoney = player.getMoney();
+
         switch (equipmentId){
             case 1:
                 Gun gun = new Gun();
                 if (playerCurrentMoney >= gun.getPrice()){
-                    player.setWeapon(gun);
+                    playerInventory.setWeapon(new Gun());
                     player.setMoney(playerCurrentMoney - gun.getPrice());
                     System.out.println("You bought a new Gun !!!");
                 }
@@ -69,7 +75,7 @@ public class ToolStore extends NormalLoc{
             case 2:
                 Sword sword = new Sword();
                 if (playerCurrentMoney >= sword.getPrice()){
-                    player.setWeapon(new Sword());
+                    playerInventory.setWeapon(new Sword());
                     player.setMoney(playerCurrentMoney - sword.getPrice());
                     System.out.println("You bought a Sword !");
                 }
@@ -80,7 +86,7 @@ public class ToolStore extends NormalLoc{
             case 3:
                 Rifle rifle = new Rifle();
                 if (playerCurrentMoney >= rifle.getPrice()){
-                    player.setWeapon(new Rifle());
+                    playerInventory.setWeapon(new Rifle());
                     player.setMoney(playerCurrentMoney - rifle.getPrice());
                     System.out.println("You bought a Rifle !");
                 }
@@ -91,7 +97,7 @@ public class ToolStore extends NormalLoc{
             case 4:
                 LightArmor lightArmor = new LightArmor();
                 if (playerCurrentMoney >= lightArmor.getPrice()){
-                    player.setArmor(new LightArmor());
+                    playerInventory.setArmor(new LightArmor());
                     player.setMoney(playerCurrentMoney - lightArmor.getPrice());
                     System.out.println("You bought a Light Armor !");
                 }
@@ -102,7 +108,7 @@ public class ToolStore extends NormalLoc{
             case 5:
                 MidArmor midArmor = new MidArmor();
                 if (playerCurrentMoney >= midArmor.getPrice()){
-                    player.setArmor(new MidArmor());
+                    playerInventory.setArmor(new MidArmor());
                     player.setMoney(playerCurrentMoney - midArmor.getPrice());
                     System.out.println("You bough a Medium Armor !");
                 }
@@ -113,7 +119,7 @@ public class ToolStore extends NormalLoc{
             case 6:
                 HeavyArmor heavyArmor = new HeavyArmor();
                 if (playerCurrentMoney >= heavyArmor.getPrice()){
-                    player.setArmor(new HeavyArmor());
+                    playerInventory.setArmor(new HeavyArmor());
                     player.setMoney(playerCurrentMoney - heavyArmor.getPrice());
                     System.out.println("You bought a Heavy armor !");
                 }

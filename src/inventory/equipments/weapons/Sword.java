@@ -6,6 +6,7 @@ public class Sword extends Equipment {
 
     private static final int swordDamageValue = 3;
     private static final int swordPrice = 35;
+    private static final String swordName = "SWORD";
 
     public Sword(){
         super();
@@ -15,6 +16,7 @@ public class Sword extends Equipment {
     public void setEquipment() {
         this.price = swordPrice;
         this.weaponDamageValue = swordDamageValue;
+        this.equipmentName = swordName;
     }
 
 }

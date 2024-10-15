@@ -4,7 +4,6 @@ import game.Game;
 import inventory.Inventory;
 import location.monsters.Monsters;
 import location.monsters.Vampire;
-import location.monsters.Zombie;
 import player.Player;
 
 import java.util.ArrayList;
@@ -17,27 +16,36 @@ public class Forest extends BattleLoc{
 
     @Override
     public void LocationActions() {
+        boolean isAlive;
         Inventory playerInventory = player.getInventory();
-        int numberOfVampire = generateRandomMonster();
-
-        List<Monsters> vampires = new ArrayList<>();
-
-        for (int i = 0; i < numberOfVampire; i++){
-            Monsters vampire = new Vampire();
-            vampires.add(vampire);
-        }
 
         if (!playerInventory.wood){
-            battle(player, vampires);
-            System.out.println("You found wood from forest. Congrats...");
-            playerInventory.wood = true;
+            int numberOfVampire = generateRandomMonster();
+
+            List<Monsters> vampires = new ArrayList<>();
+
+            for (int i = 0; i < numberOfVampire; i++){
+                Monsters vampire = new Vampire();
+                vampires.add(vampire);
+            }
+
+            System.out.println("There is " + numberOfVampire + " vampire here.");
+            isAlive = battle(player, vampires);
+
+            if (isAlive){
+                System.out.println("You found WOOD from forest. Congrats...");
+                playerInventory.wood = true;
+                if (checkItems(playerInventory)){
+                    Game.teleport(Game.takeLocationChoice(), player);
+                }
+            }
+            else{
+                Game.gameOver();
+            }
         }
         else{
             System.out.println("You already clean this forest.");
-        }
-
-        if (!checkItems(playerInventory)){
-            Game.teleport(Game.takeLocationChoice());
+            Game.teleport(Game.takeLocationChoice(), player);
         }
     }
 }

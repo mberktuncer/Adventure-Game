@@ -4,7 +4,7 @@ import game.Game;
 import player.Player;
 
 public class SafeHouse extends NormalLoc{
-    private static final int safeHouseHealingValue = 5;
+    private static final int safeHouseHealingValue = 15;
     public SafeHouse(Player player) {
         super(player);
     }
@@ -20,7 +20,7 @@ public class SafeHouse extends NormalLoc{
 
         System.out.println("Your new health is: " + player.getHealth());
 
-        Game.teleport(Game.takeLocationChoice());
+        Game.teleport(Game.takeLocationChoice(), player);
 
     }
 }

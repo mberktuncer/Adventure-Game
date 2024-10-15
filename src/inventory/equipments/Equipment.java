@@ -1,9 +1,10 @@
 package inventory.equipments;
 
 public abstract class Equipment {
-    public int price;
-    public int weaponDamageValue;
-    public int armorBlockValue;
+    protected int price;
+    protected int weaponDamageValue;
+    protected int armorBlockValue;
+    protected String equipmentName;
 
     public int getArmorBlockValue() {
         return armorBlockValue;
@@ -14,6 +15,10 @@ public abstract class Equipment {
     }
 
     public abstract void setEquipment();
+
+    public String getEquipmentName() {
+        return equipmentName;
+    }
 
     public int getWeaponDamageValue() {
         return weaponDamageValue;

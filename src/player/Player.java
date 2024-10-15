@@ -27,29 +27,8 @@ public abstract class Player {
         this.inventory = inventory;
     }
 
-    public Equipment getWeapon() {
-        return weapon;
-    }
-
-    public void setWeapon(Equipment weapon) {
-        this.weapon = weapon;
-    }
-
-    public Equipment getArmor() {
-        return armor;
-    }
-
-    public void setArmor(Equipment armor) {
-        this.armor = armor;
-    }
-
-
     public int getDamage() {
         return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
     }
 
     public int getHealth() {
