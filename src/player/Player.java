@@ -7,17 +7,14 @@ public abstract class Player {
     protected Inventory inventory;
     protected int damage;
     protected int health;
+    protected int maxHealth;
     protected int money;
     protected String name;
-    protected Equipment weapon;
-    protected Equipment armor;
-
     public Player() {
         selectChar();
     }
 
     protected abstract void selectChar();
-
 
     public Inventory getInventory() {
         return inventory;
@@ -25,6 +22,10 @@ public abstract class Player {
 
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
     }
 
     public int getDamage() {
@@ -51,7 +52,4 @@ public abstract class Player {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }

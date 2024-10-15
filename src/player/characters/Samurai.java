@@ -5,8 +5,8 @@ import player.Player;
 public class Samurai extends Player {
 
     private static final int samuraiDamageValue = 5;
-    private static int samuraiHealthValue = 21;
-    private static int samuraiMoneyValue = 15;
+    private static final int samuraiMaxHealthValue = 21;
+    private static final int samuraiMoneyValue = 15;
     private static final String samuraiName = "SAMURAI";
 
     public Samurai() {
@@ -16,7 +16,8 @@ public class Samurai extends Player {
     @Override
     protected void selectChar() {
         this.damage = samuraiDamageValue;
-        this.health = samuraiHealthValue;
+        this.health = samuraiMaxHealthValue;
+        this.maxHealth = samuraiMaxHealthValue;
         this.money = samuraiMoneyValue;
         this.name = samuraiName;
     }
